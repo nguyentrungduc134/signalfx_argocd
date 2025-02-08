@@ -1,0 +1,19 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: nginx
+  namespace: argocd  # Ensure ArgoCD watches this namespace
+spec:
+  project: default
+  source:
+    repoURL: "https://github.com/nguyentrungduc134/test_argocd"
+    path: "nginx"
+    targetRevision: HEAD
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: default
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
+
