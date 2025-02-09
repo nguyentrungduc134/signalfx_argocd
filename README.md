@@ -1,7 +1,7 @@
 
 <!-- x-release-please-start-version -->
   ```
-    Version : '0.1.9'
+    Version : '0.1.10'
   ```
 <!-- x-release-please-end -->
 # ArgoCD & Splunk Observability (SignalFx) Integration
