@@ -1,0 +1,44 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: argocd-notifications-cm
+  namespace: argocd
+data:
+  service.webhook.signalfx: |
+    url: "https://ingest.au0.signalfx.com/v2/event"
+    headers:
+      - name: "Content-Type"
+        value: "application/json"
+      - name: "X-SF-Token"
+        value: "JZbdumEmqHDjT0W2ncd0qA"
+    insecureSkipVerify: false
+
+  template.signalfx: |
+    webhook:
+      signalfx:
+        method: POST
+        body: |
+          [
+            {
+              "category": "ArgoCD",
+              "eventType": "sync_status",
+              "dimensions": {
+                "app": "{{ .app.metadata.name }}",
+                "project": "{{ .app.spec.project }}",
+                "status": "{{ .app.status.sync.status }}",
+                "health": "{{ .app.status.health.status }}",
+                "k8s.cluster.name": "eks-signalfx"
+              }
+            }
+          ]
+
+  trigger.on-sync: |
+    - when: app.status.sync.status == 'Synced' || app.status.sync.status != '' || app.status.health.status != ''
+      send: [signalfx]
+
+  subscriptions: |
+    - recipients:
+        - webhook:signalfx
+      triggers:
+        - on-sync
+

@@ -77,7 +77,7 @@ resource "signalfx_dashboard" "argocd_dashboard" {
 
   # 🎛️ Dropdown for selecting app (empty by default)
   variable {
-    property       = "app_name"
+    property       = "app"
     alias          = "App Name"
     values         = []  # No default values, user must select manually
     value_required = false
@@ -96,5 +96,5 @@ resource "signalfx_event_feed_chart" "argocd_sync_events" {
   name       = "ArgoCD Sync Events"
  # time_range = "-1h"
 
-  program_text = "A = events(eventType='sync_status', filter=filter('k8s.cluster.name', '$${k8s.cluster.name}')).publish(label='ArgoCD Sync Event')"
+  program_text = "A = events(eventType='sync_status', filter=filter('k8s.cluster.name', '$${k8s.cluster.name}') and filter('app', '$${app}')).publish(label='ArgoCD Sync Event')"
 }
