@@ -1,4 +1,4 @@
-# repo_template
+
 <!-- x-release-please-start-version -->
   ```
     Version : '0.1.8'
@@ -52,7 +52,7 @@ Go to **Splunk Observability (SignalFx)** and check the dashboard for events.
 - Filter events to verify that ArgoCD notifications are being received and processed.
 - If the event is not visible, check the webhook logs in ArgoCD and ensure the configuration is correct.
 
-### 6. Send a Custom Property to SignalFx
+### 6. Send a Custom Property to SignalFx (Optional)
 You can manually send **custom metadata** (e.g., cluster name) to **Splunk Observability (SignalFx)** using a **cURL request**:
 
 ```sh

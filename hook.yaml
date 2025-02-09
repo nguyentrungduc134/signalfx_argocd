@@ -10,7 +10,7 @@ data:
       - name: "Content-Type"
         value: "application/json"
       - name: "X-SF-Token"
-        value: "JZbdumEmqHDjT0W2ncd0qA"
+        value: "yourtoken"
     insecureSkipVerify: false
 
   template.signalfx: |
