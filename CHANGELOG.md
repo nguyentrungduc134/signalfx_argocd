@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.1.11](https://github.com/nguyentrungduc134/signalfx_argocd/compare/v0.1.10...v0.1.11) (2025-02-09)
+
+
+### Bug Fixes
+
+* Fix:  ([1db4ebe](https://github.com/nguyentrungduc134/signalfx_argocd/commit/1db4ebe2b53212ac61bda66de736f193e2b1d90c))
+
 ## [0.1.10](https://github.com/nguyentrungduc134/signalfx_argocd/compare/v0.1.9...v0.1.10) (2025-02-09)
 
 
