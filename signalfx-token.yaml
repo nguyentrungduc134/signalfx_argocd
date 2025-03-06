@@ -4,5 +4,5 @@ metadata:
   name: argocd-notifications-secret
   namespace: argocd
 stringData:
-  signalfx-token: "AP74jeWOiYRNgFRt6Qxz_A"
+  signalfx-token: "your-token"
 type: Opaque
