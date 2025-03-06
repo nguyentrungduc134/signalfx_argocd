@@ -22,6 +22,7 @@ Apply the necessary Kubernetes manifests:
 
 ```sh
 kubectl apply -f argo.yaml
+kubectl apply -f signalfx-token.yaml 
 kubectl apply -f hook.yaml
 ```
 
