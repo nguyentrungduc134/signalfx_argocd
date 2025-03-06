@@ -10,7 +10,7 @@ data:
       - name: "Content-Type"
         value: "application/json"
       - name: "X-SF-Token"
-        value: "yourtoken"
+        value: $signalfx-token
     insecureSkipVerify: false
 
   template.signalfx: |
@@ -23,7 +23,7 @@ data:
               "category": "ArgoCD",
               "eventType": "sync_status",
               "dimensions": {
-                "app_name": "{{ .app.metadata.name }}",
+                "app": "{{ .app.metadata.name }}",
                 "project": "{{ .app.spec.project }}",
                 "status": "{{ .app.status.sync.status }}",
                 "health": "{{ .app.status.health.status }}",
